@@ -1,20 +1,26 @@
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-added-large-files
 
-jobs:
-  pre-commit-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 18
-      - uses: pre-commit/action@v3.0.1
+  - repo: https://github.com/psf/black
+    rev: main
+    hooks:
+      - id: black
 
-      - name: Run pre-commit on all files
-        run: pre-commit run --all-files
+  # TODO: Add isort later
+  # - repo: https://github.com/pycqa/isort
+  #   rev: main
+  #   hooks:
+  #     - id: isort
+
+  # TODO: Add flake8 later
+  # - repo: https://github.com/pycqa/flake8
+  #   rev: main
+  #   hooks:
+  #     - id: flake8
