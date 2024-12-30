@@ -297,7 +297,7 @@ frappe.ui.form.on('Purchase Order', {
                 </tr>
                 <tr>
                     <td colspan="5" style="text-align:left;"><strong>Amount in Words &nbsp;:&nbsp;&nbsp; ${doc.in_words || 'Zero'}</strong></td>
-                    
+
                 </tr>
                 `;
         }
@@ -318,7 +318,7 @@ frappe.ui.form.on('Purchase Order', {
                     padding: 10px;
                     background-color: white;
                     color: black;
-                    border-radius: 5px; 
+                    border-radius: 5px;
                     font-size: 16px;
                     text-align: center;
                 }
@@ -480,4 +480,3 @@ function numberToWords(amount) {
 
     return amountInWords.trim();
 }
-

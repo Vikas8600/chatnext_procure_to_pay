@@ -20,9 +20,9 @@ frappe.ui.form.on('Payment Request', {
                     if (frm.doc.custom_is_advance) {
                         // If is_advance is checked, set is_received to true in Payment Entry
                         payment_entry.custom_is_advance_request = 1;
-                        
+
                         payment_entry.custom_advance_gl_indicator = frm.doc.custom_advance_gl_indicator;
-                        
+
                         payment_entry.paid_to = payment_entry.custom_advance_gl_indicator;
                     }
                     frappe.set_route('Form', payment_entry.doctype, payment_entry.name);
@@ -94,27 +94,27 @@ function numberToWords(amount) {
 
     function convertNumberToWords(num) {
         if (num === 0) return 'Zero';
-        
+
         const crore = Math.floor(num / 10000000);
         num -= crore * 10000000;
-        
+
         const lakh = Math.floor(num / 100000);
         num -= lakh * 100000;
-        
+
         const thousand = Math.floor(num / 1000);
         num -= thousand * 1000;
-        
+
         const hundred = Math.floor(num / 100);
         num = num % 100;
-        
+
         let words = '';
-        
+
         if (crore > 0) words += `${convertLessThanThousand(crore)} Crore `;
         if (lakh > 0) words += `${convertLessThanThousand(lakh)} Lakh `;
         if (thousand > 0) words += `${convertLessThanThousand(thousand)} Thousand `;
         if (hundred > 0) words += `${units[hundred]} Hundred `;
         if (num > 0) words += `${convertLessThanThousand(num)} `;
-        
+
         return words.trim();
     }
 

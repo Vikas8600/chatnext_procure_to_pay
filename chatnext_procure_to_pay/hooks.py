@@ -232,3 +232,6 @@ doctype_js = {"Purchase Order" : "public/js/purchase_order.js",
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [
+    {"dt": "Custom Field", "filters": [["module", "like", "chatnext procure to pay"]]}
+]

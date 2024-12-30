@@ -26,7 +26,7 @@ frappe.ui.form.on('Payment Entry', {
             }
         }
     },
-    
+
     custom_gl_indicator: function(frm) {
         // Fetch the value of custom_gl_indicator and set it to paid_from field
         if (frm.doc.custom_gl_indicator) {

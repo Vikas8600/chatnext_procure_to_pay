@@ -25,7 +25,7 @@ frappe.ui.form.on('Purchase Invoice', {
                         <td>${item.qty}</td>
                         <td>${item.rate}</td>
                         <td>${item.amount}</td>
-                        
+
                     </tr>
                     `;
                 });
@@ -153,7 +153,7 @@ frappe.ui.form.on('Purchase Invoice', {
         <div class="custom-invoice-detail">
             <p><strong>Tally Invoice No:</strong> ${frm.doc.tally_invoice_number_refrence || 'N/A'}</p>
         </div>
-        
+
         <div class="custom-invoice-detail">
             <p><strong>Supplier Invoice No:</strong> ${frm.doc.bill_no || 'N/A'}</p>
         </div>
@@ -185,7 +185,7 @@ frappe.ui.form.on('Purchase Invoice', {
                     <th>Quantity</th>
                     <th>Rate</th>
                     <th>Amount</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -253,11 +253,11 @@ frappe.ui.form.on('Purchase Invoice', {
                     'parent_segment': frm.doc.custom_parent_cost_center,
                     "is_group": 0,
                     "disable": 0
-                     
+
                 }
             };
         });
-        
+
         console.log("Onload: Queries set for custom_cc and segment fields");
         // Set query for custom_cc field in the child table
         frm.fields_dict["items"].grid.get_field("custom_parent_cost_centre").get_query = function() {
@@ -307,7 +307,7 @@ frappe.ui.form.on('Purchase Invoice', {
         });
 
         console.log("custom_cc field changed, query set for segment field with parent_segment:", frm.doc.custom_cc);
-        
+
         var child = locals[cdt][cdn];
         frappe.ui.form.on('Purchase Invoice Item', {
             custom_parent_cost_centre: function(frm, cdt, cdn) {
