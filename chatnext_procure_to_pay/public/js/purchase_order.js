@@ -72,6 +72,7 @@ frappe.ui.form.on('Purchase Order', {
         frm.page.remove_inner_button('Payment Request', 'Create');
 
         // Add a new 'Payment Request' button with custom behavior
+        if(frm.doc.docstatus === 1) {
         frm.page.add_inner_button(__('Payment Request'), function () {
             console.log('Payment Request button clicked');
             frappe.call({
@@ -198,6 +199,7 @@ frappe.ui.form.on('Purchase Order', {
                 }
             });
         }, 'Create');
+        }
     },
     validate: function (frm) {
         // Check if the Purchase Order is already submitted
